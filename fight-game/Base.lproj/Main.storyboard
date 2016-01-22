@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -47,20 +46,8 @@
                                     <constraint firstAttribute="height" constant="55" id="N0H-ii-lB5"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNm-2e-Io7">
-                                <rect key="frame" x="420" y="40" width="165" height="61"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="C3Y-Al-VJB"/>
-                                    <constraint firstAttribute="height" constant="61" id="Ycr-OU-z6x"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Attack" backgroundImage="player2attackbtn">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="946-Ir-yzQ">
-                                <rect key="frame" x="15" y="40" width="165" height="61"/>
+                                <rect key="frame" x="15" y="25" width="165" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="165" id="Qi8-N7-pgI"/>
                                     <constraint firstAttribute="height" constant="61" id="pON-AN-1x2"/>
@@ -70,35 +57,83 @@
                                 <state key="normal" title="Attack" backgroundImage="player1attackbtn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="attackButtonPlayer1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gdU-s7-oKh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiI-Kh-Lfb">
+                                <rect key="frame" x="176" y="367" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100 HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngc-FY-XEE">
+                                <rect key="frame" x="374" y="366" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 attacked Player 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2H-i1-qcn">
+                                <rect key="frame" x="129" y="552" width="342" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="342" id="9Ey-f1-nhd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNm-2e-Io7">
+                                <rect key="frame" x="420" y="25" width="165" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="C3Y-Al-VJB"/>
+                                    <constraint firstAttribute="height" constant="61" id="Ycr-OU-z6x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Attack" backgroundImage="player2attackbtn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="attackButtonPlayer2Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qcU-Ks-RWP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XNm-2e-Io7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="3Ax-K1-gp4"/>
+                            <constraint firstItem="XNm-2e-Io7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="3Ax-K1-gp4"/>
                             <constraint firstItem="YIf-ho-8e9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="45r-l1-55W"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kye-H2-dch" secondAttribute="bottom" id="8ty-36-4Uf"/>
                             <constraint firstItem="946-Ir-yzQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="A0I-9j-UsM"/>
                             <constraint firstItem="Kye-H2-dch" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bnn-Mh-6AN"/>
                             <constraint firstAttribute="trailing" secondItem="HC9-3l-W6U" secondAttribute="trailing" id="HNx-eU-iRy"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="POf-uM-6LA" secondAttribute="bottom" constant="10" id="Jt9-4P-dSW"/>
+                            <constraint firstItem="PiI-Kh-Lfb" firstAttribute="top" secondItem="YIf-ho-8e9" secondAttribute="top" constant="40" id="M7i-OK-WdD"/>
+                            <constraint firstItem="PiI-Kh-Lfb" firstAttribute="trailing" secondItem="YIf-ho-8e9" secondAttribute="trailing" constant="10" id="NEf-ao-G6F"/>
                             <constraint firstItem="HC9-3l-W6U" firstAttribute="top" secondItem="oWe-ED-nMq" secondAttribute="bottom" id="V4W-QB-cHf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="d2H-i1-qcn" secondAttribute="bottom" constant="27" id="VD8-pe-t4E"/>
                             <constraint firstAttribute="trailing" secondItem="oWe-ED-nMq" secondAttribute="trailing" constant="5" id="VJM-Vz-GDg"/>
                             <constraint firstAttribute="trailing" secondItem="XNm-2e-Io7" secondAttribute="trailing" constant="15" id="VOc-zd-9Dp"/>
                             <constraint firstAttribute="trailing" secondItem="Kye-H2-dch" secondAttribute="trailing" id="WRh-KJ-Gf3"/>
                             <constraint firstItem="HC9-3l-W6U" firstAttribute="top" secondItem="YIf-ho-8e9" secondAttribute="bottom" id="cDo-GH-jBX"/>
                             <constraint firstItem="Kye-H2-dch" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jUE-PC-Anj"/>
-                            <constraint firstItem="946-Ir-yzQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="kTw-tX-I6S"/>
+                            <constraint firstItem="946-Ir-yzQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="kTw-tX-I6S"/>
                             <constraint firstItem="POf-uM-6LA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kk2-xY-KKH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HC9-3l-W6U" secondAttribute="bottom" id="mBj-Yo-rDa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XNm-2e-Io7" secondAttribute="trailing" constant="5" id="wgp-K3-fYz"/>
+                            <constraint firstItem="d2H-i1-qcn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qu0-4k-fhb"/>
+                            <constraint firstItem="ngc-FY-XEE" firstAttribute="leading" secondItem="oWe-ED-nMq" secondAttribute="leading" constant="10" id="w5x-90-vNh"/>
+                            <constraint firstItem="ngc-FY-XEE" firstAttribute="top" secondItem="oWe-ED-nMq" secondAttribute="top" constant="40" id="woo-i5-5uI"/>
                             <constraint firstItem="HC9-3l-W6U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zwl-i9-bYS"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="wgp-K3-fYz"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="attackButtonPlayer1" destination="946-Ir-yzQ" id="PG4-dg-PUu"/>
+                        <outlet property="attackButtonPlayer2" destination="XNm-2e-Io7" id="NHe-9Q-9nD"/>
+                        <outlet property="characterPlayer1" destination="YIf-ho-8e9" id="A6D-db-bmG"/>
+                        <outlet property="characterPlayer2" destination="oWe-ED-nMq" id="pW0-II-PzO"/>
+                        <outlet property="gameMessage" destination="d2H-i1-qcn" id="3Ht-Wz-8Fe"/>
+                        <outlet property="hpPlayer1" destination="PiI-Kh-Lfb" id="tc5-kG-cl1"/>
+                        <outlet property="hpPlayer2" destination="ngc-FY-XEE" id="c1d-Bi-Toa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
