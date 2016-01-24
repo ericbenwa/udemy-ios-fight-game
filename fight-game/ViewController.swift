@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var hpPlayer2: UILabel!
     @IBOutlet weak var characterPlayer2: UIImageView!
     @IBOutlet weak var attackButtonPlayer2: UIButton!
+    @IBOutlet weak var restartButton: UIButton!
     
     var player1: Player!
     var player2: Player!
@@ -41,6 +42,12 @@ class ViewController: UIViewController {
         attackButtonPlayer2.enabled = true
     }
     
+    @IBAction func restartButtonPressed(sender: AnyObject) {
+        newGame()
+        restartButton.hidden = true
+    }
+    
+    
     func attackPressed(fighter: Player!, fightee: Player!, hpLabel: UILabel!, attackButton: UIButton!) {
         fightee.attemptAttack(fightee.attackPower)
         gameMessage.text = "Attacked \(fightee.name) for -\(fighter.attackPower) HP"
@@ -48,6 +55,7 @@ class ViewController: UIViewController {
         
         if !fightee.isAlive {
             gameMessage.text = "\(fighter.name) Wins!"
+            restartButton.hidden = false
             
             if fightee.name == player1.name {
                 characterPlayer1.hidden = true
@@ -63,10 +71,7 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+    func newGame() {
         player1 = Player.init(name: "Poopy Eye", hp: 90, attackPower: 23)
         player2 = Player.init(name: "Hawk Man", hp: 94, attackPower: 21)
         
@@ -74,6 +79,19 @@ class ViewController: UIViewController {
         hpPlayer2.text = "\(player2.hp) HP"
         
         gameMessage.text = "\(player1.name) versus \(player2.name)"
+        
+        characterPlayer1.hidden = false
+        attackButtonPlayer1.hidden = false
+        attackButtonPlayer2.hidden = false
+        characterPlayer2.hidden = false
+        attackButtonPlayer1.hidden = false
+        attackButtonPlayer2.hidden = false
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        newGame()
     }
 
     override func didReceiveMemoryWarning() {
