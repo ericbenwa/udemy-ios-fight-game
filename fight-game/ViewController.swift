@@ -22,20 +22,9 @@ class ViewController: UIViewController {
     var player2: Player!
 
     @IBAction func attackButtonPlayer1Pressed(sender: AnyObject) {
-        player2.attemptAttack(player1.attackPower)
-        gameMessage.text = "Attacked \(player2.name) for  -\(player1.attackPower) HP"
-        print(player2.hp)
-        hpPlayer2.text = "\(player2.hp) HP"
+        attackPressed(player1, fightee: player2, hpLabel: hpPlayer2, attackButton: attackButtonPlayer1)
         attackButtonPlayer1.enabled = false
         NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "enableAttackButtonPlayer1", userInfo: nil, repeats: false)
-        
-        if player2.isAlive == false {
-            gameMessage.text = "\(player1.name) Wins!"
-            characterPlayer2.hidden = true
-            attackButtonPlayer1.hidden = true
-            attackButtonPlayer2.hidden = true
-            hpPlayer2.text = "0 HP"
-        }
     }
     
     func enableAttackButtonPlayer1() {
@@ -43,24 +32,35 @@ class ViewController: UIViewController {
     }
 
     @IBAction func attackButtonPlayer2Pressed(sender: AnyObject) {
-        player1.attemptAttack(player1.attackPower)
-        gameMessage.text = "Attacked \(player1.name) for -\(player2.attackPower) HP"
-        print(player1.hp)
-        hpPlayer1.text = "\(player1.hp) HP"
+        attackPressed(player2, fightee: player1, hpLabel: hpPlayer1, attackButton: attackButtonPlayer2)
         attackButtonPlayer2.enabled = false
         NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "enableAttackButtonPlayer2", userInfo: nil, repeats: false)
-        
-        if player1.isAlive == false {
-            gameMessage.text = "\(player2.name) Wins!"
-            characterPlayer1.hidden = true
-            attackButtonPlayer1.hidden = true
-            attackButtonPlayer2.hidden = true
-            hpPlayer1.text = "0 HP"
-        }
     }
     
     func enableAttackButtonPlayer2() {
         attackButtonPlayer2.enabled = true
+    }
+    
+    func attackPressed(fighter: Player!, fightee: Player!, hpLabel: UILabel!, attackButton: UIButton!) {
+        fightee.attemptAttack(fightee.attackPower)
+        gameMessage.text = "Attacked \(fightee.name) for -\(fighter.attackPower) HP"
+        hpLabel.text = "\(fightee.hp) HP"
+        
+        if !fightee.isAlive {
+            gameMessage.text = "\(fighter.name) Wins!"
+            
+            if fightee.name == player1.name {
+                characterPlayer1.hidden = true
+                attackButtonPlayer1.hidden = true
+                attackButtonPlayer2.hidden = true
+                hpPlayer1.text = "0 HP"
+            } else if fightee.name == player2.name {
+                characterPlayer2.hidden = true
+                attackButtonPlayer1.hidden = true
+                attackButtonPlayer2.hidden = true
+                hpPlayer2.text = "0 HP"
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -81,6 +81,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
