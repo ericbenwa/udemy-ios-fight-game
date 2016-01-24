@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -21,6 +22,9 @@ class ViewController: UIViewController {
     
     var player1: Player!
     var player2: Player!
+    var bgSound: AVAudioPlayer!
+    var attackSound: AVAudioPlayer!
+    var winSound: AVAudioPlayer!
 
     @IBAction func attackButtonPlayer1Pressed(sender: AnyObject) {
         attackPressed(player1, fightee: player2, hpLabel: hpPlayer2, attackButton: attackButtonPlayer1)
@@ -52,6 +56,7 @@ class ViewController: UIViewController {
         fightee.attemptAttack(fightee.attackPower)
         gameMessage.text = "Attacked \(fightee.name) for -\(fighter.attackPower) HP"
         hpLabel.text = "\(fightee.hp) HP"
+        playSound()
         
         if !fightee.isAlive {
             gameMessage.text = "\(fighter.name) Wins!"
@@ -88,10 +93,28 @@ class ViewController: UIViewController {
         attackButtonPlayer2.hidden = false
     }
     
+    func playSound() {
+        if attackSound.playing {
+            attackSound.stop()
+        }
+        
+        attackSound.play()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         newGame()
+        
+        let bgSoundPath = NSBundle.mainBundle().pathForResource("51239__rutgermuller__8-bit-electrohouse", ofType: "wav")
+        let bgSoundUrl = NSURL(fileURLWithPath: bgSoundPath!)
+        
+        do {
+            try attackSound = AVAudioPlayer(contentsOfURL: bgSoundUrl)
+            attackSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {

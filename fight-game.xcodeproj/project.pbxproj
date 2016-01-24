@@ -10,8 +10,10 @@
 		4638D5281C4F2FA700C0933F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4638D5271C4F2FA700C0933F /* AppDelegate.swift */; };
 		4638D52A1C4F2FA700C0933F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4638D5291C4F2FA700C0933F /* ViewController.swift */; };
 		4638D52D1C4F2FA700C0933F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4638D52B1C4F2FA700C0933F /* Main.storyboard */; };
-		4638D52F1C4F2FA700C0933F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4638D52E1C4F2FA700C0933F /* Assets.xcassets */; };
 		4638D5321C4F2FA700C0933F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4638D5301C4F2FA700C0933F /* LaunchScreen.storyboard */; };
+		466CDB1D1C548E4300CC7983 /* 51239__rutgermuller__8-bit-electrohouse.wav in Resources */ = {isa = PBXBuildFile; fileRef = 466CDB1A1C548E4300CC7983 /* 51239__rutgermuller__8-bit-electrohouse.wav */; };
+		466CDB1E1C548E4300CC7983 /* 77611__joelaudio__sfx-attack-sword-001.wav in Resources */ = {isa = PBXBuildFile; fileRef = 466CDB1B1C548E4300CC7983 /* 77611__joelaudio__sfx-attack-sword-001.wav */; };
+		466CDB1F1C548E4300CC7983 /* 126113__klankbeeld__laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 466CDB1C1C548E4300CC7983 /* 126113__klankbeeld__laugh.wav */; };
 		469296AE1C51527700625616 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469296AD1C51527700625616 /* Character.swift */; };
 		469296B01C51584700625616 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469296AF1C51584700625616 /* Player.swift */; };
 /* End PBXBuildFile section */
@@ -21,9 +23,11 @@
 		4638D5271C4F2FA700C0933F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4638D5291C4F2FA700C0933F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4638D52C1C4F2FA700C0933F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4638D52E1C4F2FA700C0933F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4638D5311C4F2FA700C0933F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4638D5331C4F2FA700C0933F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		466CDB1A1C548E4300CC7983 /* 51239__rutgermuller__8-bit-electrohouse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "51239__rutgermuller__8-bit-electrohouse.wav"; path = "../51239__rutgermuller__8-bit-electrohouse.wav"; sourceTree = "<group>"; };
+		466CDB1B1C548E4300CC7983 /* 77611__joelaudio__sfx-attack-sword-001.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "77611__joelaudio__sfx-attack-sword-001.wav"; path = "../77611__joelaudio__sfx-attack-sword-001.wav"; sourceTree = "<group>"; };
+		466CDB1C1C548E4300CC7983 /* 126113__klankbeeld__laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 126113__klankbeeld__laugh.wav; path = ../126113__klankbeeld__laugh.wav; sourceTree = "<group>"; };
 		469296AD1C51527700625616 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		469296AF1C51584700625616 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,12 +62,14 @@
 		4638D5261C4F2FA700C0933F /* fight-game */ = {
 			isa = PBXGroup;
 			children = (
+				466CDB1A1C548E4300CC7983 /* 51239__rutgermuller__8-bit-electrohouse.wav */,
+				466CDB1B1C548E4300CC7983 /* 77611__joelaudio__sfx-attack-sword-001.wav */,
+				466CDB1C1C548E4300CC7983 /* 126113__klankbeeld__laugh.wav */,
 				469296AD1C51527700625616 /* Character.swift */,
 				469296AF1C51584700625616 /* Player.swift */,
 				4638D5271C4F2FA700C0933F /* AppDelegate.swift */,
 				4638D5291C4F2FA700C0933F /* ViewController.swift */,
 				4638D52B1C4F2FA700C0933F /* Main.storyboard */,
-				4638D52E1C4F2FA700C0933F /* Assets.xcassets */,
 				4638D5301C4F2FA700C0933F /* LaunchScreen.storyboard */,
 				4638D5331C4F2FA700C0933F /* Info.plist */,
 			);
@@ -128,8 +134,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				466CDB1F1C548E4300CC7983 /* 126113__klankbeeld__laugh.wav in Resources */,
+				466CDB1E1C548E4300CC7983 /* 77611__joelaudio__sfx-attack-sword-001.wav in Resources */,
 				4638D5321C4F2FA700C0933F /* LaunchScreen.storyboard in Resources */,
-				4638D52F1C4F2FA700C0933F /* Assets.xcassets in Resources */,
+				466CDB1D1C548E4300CC7983 /* 51239__rutgermuller__8-bit-electrohouse.wav in Resources */,
 				4638D52D1C4F2FA700C0933F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
