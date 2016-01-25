@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     var player2: Player!
     var bgSound: AVAudioPlayer!
     var attackSound: AVAudioPlayer!
-    var winSound: AVAudioPlayer!
+    var gameOverSound: AVAudioPlayer!
 
     @IBAction func attackButtonPlayer1Pressed(sender: AnyObject) {
         attackPressed(player1, fightee: player2, hpLabel: hpPlayer2, attackButton: attackButtonPlayer1)
@@ -56,11 +56,12 @@ class ViewController: UIViewController {
         fightee.attemptAttack(fightee.attackPower)
         gameMessage.text = "Attacked \(fightee.name) for -\(fighter.attackPower) HP"
         hpLabel.text = "\(fightee.hp) HP"
-        playSound()
+        playAttackSound()
         
         if !fightee.isAlive {
             gameMessage.text = "\(fighter.name) Wins!"
             restartButton.hidden = false
+            playGameOverSound()
             
             if fightee.name == player1.name {
                 characterPlayer1.hidden = true
@@ -93,7 +94,7 @@ class ViewController: UIViewController {
         attackButtonPlayer2.hidden = false
     }
     
-    func playSound() {
+    func playAttackSound() {
         if attackSound.playing {
             attackSound.stop()
         }
@@ -101,17 +102,49 @@ class ViewController: UIViewController {
         attackSound.play()
     }
     
+    func playGameOverSound() {
+        if gameOverSound.playing {
+            gameOverSound.stop()
+        }
+        
+        gameOverSound.play()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         newGame()
         
+        // Background Sound
         let bgSoundPath = NSBundle.mainBundle().pathForResource("51239__rutgermuller__8-bit-electrohouse", ofType: "wav")
         let bgSoundUrl = NSURL(fileURLWithPath: bgSoundPath!)
         
         do {
-            try attackSound = AVAudioPlayer(contentsOfURL: bgSoundUrl)
+            try bgSound = AVAudioPlayer(contentsOfURL: bgSoundUrl)
+            bgSound.prepareToPlay()
+            bgSound.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        // Attack Sound
+        let attackSoundPath = NSBundle.mainBundle().pathForResource("77611__joelaudio__sfx-attack-sword-001", ofType: "wav")
+        let attackSoundUrl = NSURL(fileURLWithPath: attackSoundPath!)
+        
+        // Game Over Sound
+        let gameOverSoundPath = NSBundle.mainBundle().pathForResource("126113__klankbeeld__laugh", ofType: "wav")
+        let gameOverSoundUrl = NSURL(fileURLWithPath: gameOverSoundPath!)
+        
+        do {
+            try attackSound = AVAudioPlayer(contentsOfURL: attackSoundUrl)
             attackSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        do {
+            try gameOverSound = AVAudioPlayer(contentsOfURL: gameOverSoundUrl)
+            gameOverSound.prepareToPlay()
         } catch let err as NSError {
             print(err.debugDescription)
         }
